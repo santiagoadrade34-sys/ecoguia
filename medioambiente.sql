@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS medio_ambiente;
+USE medio_ambiente;
+
+CREATE TABLE IF NOT EXISTS puntajes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    jugador VARCHAR(50) DEFAULT 'Anónimo',
+    puntos INT NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

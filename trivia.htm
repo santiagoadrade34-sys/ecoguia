@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Ecológica - EcoGuía</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>🌱 Trivia Ecológica</h1>
+        <p>Responde las preguntas y comprueba cuánto sabes sobre reciclaje.</p>
+        
+        <!-- Botón de navegación -->
+        <nav class="nav-buttons">
+            <a href="{{ url_for('index') }}" class="btn">← Volver al Inicio</a>
+            <a href="{{ url_for('trivia') }}" class="btn active">Trivia 🎮</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- SECCIÓN MINIJUEGO -->
+        <section class="game-section">
+            <h2>🎮 Trivia de 3 Preguntas</h2>
+            <form id="quizForm">
+                <div class="question">
+                    <p>1. ¿En qué caneca va una botella de plástico limpia?</p>
+                    <label><input type="radio" name="q1" value="blanca" required> Blanca</label><br>
+                    <label><input type="radio" name="q1" value="verde"> Verde</label><br>
+                    <label><input type="radio" name="q1" value="negra"> Negra</label>
+                </div>
+
+                <div class="question">
+                    <p>2. ¿Dónde debes depositar las cáscaras de fruta?</p>
+                    <label><input type="radio" name="q2" value="blanca"> Blanca</label><br>
+                    <label><input type="radio" name="q2" value="verde" required> Verde</label><br>
+                    <label><input type="radio" name="q2" value="negra"> Negra</label>
+                </div>
+
+                <div class="question">
+                    <p>3. ¿En qué caneca se arroja el papel higiénico usado?</p>
+                    <label><input type="radio" name="q3" value="blanca"> Blanca</label><br>
+                    <label><input type="radio" name="q3" value="verde"> Verde</label><br>
+                    <label><input type="radio" name="q3" value="negra" required> Negra</label>
+                </div>
+
+                <button type="button" class="btn-submit" onclick="calcularPuntaje()">Verificar Respuestas</button>
+            </form>
+            <div id="resultado" class="result"></div>
+        </section>
+
+    </main>
+
+    <script>
+        function calcularPuntaje() {
+            const respuestas = { q1: "blanca", q2: "verde", q3: "negra" };
+            let puntaje = 0;
+            const form = document.forms['quizForm'];
+
+            for (let q in respuestas) {
+                if (form[q].value === respuestas[q]) {
+                    puntaje++;
+                }
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `Obtuviste <strong>${puntaje} de 3</strong> respuestas correctas.`;
+            
+            if (puntaje === 3) {
+                resultadoDiv.style.color = "#2e7d32";
+            } else {
+                resultadoDiv.style.color = "#d32f2f";
+            }
+        }
+    </script>
+</body>
+</html>

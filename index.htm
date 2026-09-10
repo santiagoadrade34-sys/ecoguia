@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGuía - Separa tus Residuos</title>
+    <!-- Ruta corregida para Flask -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <h1>🌱 EcoGuía Ambiental</h1>
+        <p>Aprende a clasificar tus residuos y descubre el impacto del reciclaje en el planeta.</p>
+        
+        <!-- Botones de navegación -->
+        <nav class="nav-buttons">
+            <a href="{{ url_for('index') }}" class="btn active">Inicio</a>
+            <a href="{{ url_for('trivia') }}" class="btn">Ir a Trivia 🎮</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- SECCIÓN DE INFORMACIÓN EXTENSA -->
+        <section class="info-section">
+            <h2>¿Qué es el Reciclaje y cuál es su Función?</h2>
+            <p>
+                El <strong>reciclaje</strong> es un proceso físico-químico o mecánico que consiste en someter a una materia o un producto ya utilizado a un ciclo de tratamiento total o parcial para obtener una materia prima o un nuevo producto. Su función principal es reincorporar los recursos al ciclo productivo, reduciendo la acumulación de desechos en los rellenos sanitarios y disminuyendo la sobreexplotación de la naturaleza.
+            </p>
+
+            <h2>El Impacto Directo en el Medio Ambiente</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3>🌳 Conservación de Ecosistemas</h3>
+                    <p>Al reciclar papel y cartón, evitamos la tala indiscriminada de bosques. Al procesar metales y plásticos reciclados, reducimos la minería y la extracción de petróleo, protegiendo los hábitats naturales.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>💧 Ahorro de Agua y Energía</h3>
+                    <p>La fabricación de productos a partir de material reciclado consume significativamente menos agua y energía eléctrica en comparación con el procesamiento de materia prima virgen.</p>
+                </div>
+                <div class="impact-card">
+                    <h3>🌍 Reducción de Emisiones CO₂</h3>
+                    <p>Disminuir el consumo de energía en las industrias se traduce de forma directa en un menor nivel de emisiones de gases de efecto invernadero, ayudando a frenar el calentamiento global.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CANECAS -->
+        <section class="canecas-section">
+            <h2>Guía de Canecas de Colores</h2>
+            <div class="canecas-grid">
+                <div class="card caneca-blanca">
+                    <h3>⚪ Caneca Blanca</h3>
+                    <p><strong>Residuos Aprovechables:</strong> Plástico, cartón, vidrio, papel y metal limpios y secos.</p>
+                    <p class="detalles">Ideales para reciclaje industrial directo. Asegúrate de que no tengan grasa o líquidos.</p>
+                </div>
+                <div class="card caneca-verde">
+                    <h3>🟢 Caneca Verde</h3>
+                    <p><strong>Residuos Orgánicos:</strong> Restos de comida, desechos agrícolas, cáscaras de fruta y verduras.</p>
+                    <p class="detalles">Se procesan para la creación de compostaje y abonos orgánicos para el campo.</p>
+                </div>
+                <div class="card caneca-negra">
+                    <h3>⚫ Caneca Negra</h3>
+                    <p><strong>Residuos No Aprovechables:</strong> Papel higiénico, servilletas usadas, cartón sucio y servilletas.</p>
+                    <p class="detalles">Van directamente al relleno sanitario debido a que no son reutilizables.</p>
+                </div>
+            </div>
+            
+            <div class="center-btn">
+                <a href="{{ url_for('trivia') }}" class="btn-primary">¡Pone a prueba tus conocimientos aquí! 🎮</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Juntos por un planeta verde y sostenible. 🌱 EcoGuía 2026</p>
+    </footer>
+
+</body>
+</html>
